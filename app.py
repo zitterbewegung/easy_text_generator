@@ -1,6 +1,8 @@
 import streamlit as st
+from streamlit_ace import st_ace
 from utils import *
 import json
+from streamlit_quill import st_quill
 
 line_wrap = False
 
@@ -67,3 +69,18 @@ if line_wrap == True:
 else:
     sample[0] = sample[0]
 st.text(sample[0])
+
+#placeholder = st.sidebar.text_input("Placeholder", "Some placeholder text")
+#html = st.sidebar.checkbox("Return HTML", False)
+#read_only = st.sidebar.checkbox("Read only", False)
+if sample[0]:
+	placeholder = sample[0]
+
+st.content = st_quill(
+    placeholder=sample[0],
+    html=False,
+    readonly=True,
+)
+
+#st.write(content)
+
